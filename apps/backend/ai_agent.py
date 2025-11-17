@@ -15,12 +15,7 @@ if not GEMINI_API_KEY:
     )
 
 # Define a travel prompt with weather context
-template = """You are a helpful travel assistant. 
-
-Current weather information: {weather_info}
-
-Based on the weather and your knowledge, suggest activities and must-see places in {destination}. 
-Consider the current weather conditions when making recommendations."""
+template = """What should I do and see in {destination}? Current weather information: {weather_info} Write me the list of top 15 activities without the title and in the JSON format with JSON objects that look like this: {{ "activity": "activity name", "description": "activity description", "link": "website" }}. Don't write json around it, just the array. No extra spaces. Use double quotes. Description shouldn't exceed 150 characters. Consider the current weather conditions when making recommendations."""
 
 prompt = PromptTemplate(input_variables=["destination", "weather_info"], template=template)
 
@@ -38,7 +33,7 @@ def get_ai_recommendation(destination: str) -> str:
     """Return Gemini-generated travel recommendations with weather info"""
     # Get weather data
     weather = get_weather(destination)
-    
+
     # Format weather information
     if "error" not in weather:
         weather_info = (
@@ -48,7 +43,7 @@ def get_ai_recommendation(destination: str) -> str:
         )
     else:
         weather_info = f"Weather information is currently unavailable. Error: {weather.get('error', 'Unknown')}"
-    
+
     print(f"INFO - Getting AI recommendation for {destination} with weather data")
 
     try:
@@ -57,7 +52,7 @@ def get_ai_recommendation(destination: str) -> str:
             "destination": destination,
             "weather_info": weather_info
         }
-        
+
         result = chain.invoke(prompt_input)
         return result.content
     except Exception as e:
