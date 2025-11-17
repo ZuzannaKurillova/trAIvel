@@ -44,3 +44,20 @@ Thumbs.db
 .github/instructions/nx.instructions.md
 
 .angular
+
+# Environment variables - NEVER commit these!
+.env
+.env.local
+.env.*.local
+apps/backend/.env
+apps/backend/.env.local
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+apps/backend/venv/
+apps/backend/env/
+*.egg-info/

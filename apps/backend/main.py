@@ -1,5 +1,10 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from dotenv import load_dotenv
+from ai_agent import get_ai_recommendation
+
+# Load environment variables from .env file
+load_dotenv()
 
 app = FastAPI(title="trAIvel Backend API")
 
@@ -18,6 +23,12 @@ async def root():
 @app.get("/api/health")
 async def health_check():
     return {"status": "healthy"}
+
+@app.get("/api/recommend")
+async def recommend(destination: str):
+    recommendation = get_ai_recommendation(destination)
+    return {"destination": destination, "recommendation": recommendation}
+
 
 if __name__ == "__main__":
     import uvicorn
