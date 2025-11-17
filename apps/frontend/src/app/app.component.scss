@@ -1,0 +1,41 @@
+:host {
+  margin: 1rem;
+  display: grid;
+  place-items: center;
+  height: 100%;
+}
+
+.container {
+  display: grid;
+  place-items: center;
+
+  .search {
+    display: flex;
+    button {
+      margin-left: 1rem;
+      background-color: orange;
+
+      mat-icon {
+        color: white;
+      }
+    }
+
+    mat-form-field {
+      width: 350px;
+    }
+  }
+
+  .activities {
+    width: 100vw;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 250px));
+    grid-gap: 1rem;
+    justify-content: center;
+
+    img {
+      width: 100%;
+      min-height: 200px;
+      border-radius: 25px;
+    }
+  }
+}

@@ -1,0 +1,31 @@
+<div class="container">
+  @if (!showSpinner) {
+  <div class="search">
+    <mat-form-field appearance="outline">
+      <mat-label>Which place do you want to explore?</mat-label>
+      <input
+        matInput
+        type="text"
+        (keyup.enter)="explore()"
+        [(ngModel)]="place"
+      />
+    </mat-form-field>
+    <button mat-fab (click)="explore()">
+      <mat-icon
+        aria-label="Search adventures"
+        fontIcon="travel_explore"
+      ></mat-icon>
+    </button>
+  </div>
+  } @if (activities.length > 0) {
+  <div class="activities">
+    @for (activity of activities; track activity) {
+    <div>
+      <app-card [activity]="activity"></app-card>
+    </div>
+    }
+  </div>
+  } @if (activities.length === 0 && showSpinner) {
+  <app-spinner></app-spinner>
+  }
+</div>

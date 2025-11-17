@@ -1,0 +1,17 @@
+<a [href]="activity()?.link" target="_blank">
+  <div class="flip-card">
+    <div class="flip-card-inner">
+      <div class="flip-card-front">
+        <div class="activity">
+          <img [src]="activity()?.imgUrl" alt="activity()?.activity" />
+        </div>
+      </div>
+      <div class="flip-card-back">
+        <div class="back-inner">
+          <h4>{{ activity()?.activity }}</h4>
+          <p>{{ activity()?.description }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</a>
