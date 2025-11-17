@@ -15,7 +15,24 @@ if not GEMINI_API_KEY:
     )
 
 # Define a travel prompt with weather context
-template = """What should I do and see in {destination}? Current weather information: {weather_info} Write me the list of top 15 activities without the title and in the JSON format with JSON objects that look like this: {{ "activity": "activity name", "description": "activity description", "link": "website" }}. Don't write json around it, just the array. No extra spaces. Use double quotes. Description shouldn't exceed 150 characters. Consider the current weather conditions when making recommendations."""
+template = """What should I do and see in {destination}? Current weather information: {weather_info}
+
+CRITICAL: You must respond with ONLY a valid JSON array. No markdown, no code blocks, no explanations.
+
+Return exactly 15 activities in this format:
+[
+  {{ "activity": "activity name", "description": "activity description", "link": "website URL" }}
+]
+
+Requirements:
+- ONLY return the JSON array, nothing else
+- NO markdown code blocks (no ```json or ```)
+- Use double quotes for all strings
+- Description max 150 characters
+- Include a real website URL for each activity
+- Consider the current weather: {weather_info}
+
+Start your response with [ and end with ]"""
 
 prompt = PromptTemplate(input_variables=["destination", "weather_info"], template=template)
 

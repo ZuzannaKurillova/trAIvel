@@ -40,10 +40,6 @@ export class AppComponent {
    this.showSpinner = true;
    this.activities = await this.backendService.getRecommendations(this.place);
    this.showSpinner = false;
-
-   /*for(const [index, activity] of this.activities.entries()){
-    this.activities[index].imgUrl = await this.imageSearch.getImage(this.place + activity.activity);
-   }*/
   }
 
 
