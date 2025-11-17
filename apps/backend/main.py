@@ -2,7 +2,7 @@ from fastapi import FastAPI, Query
 from fastapi.middleware.cors import CORSMiddleware
 from dotenv import load_dotenv
 from ai_agent import get_ai_recommendation
-from places_service import get_place_photo_batch
+from places_service import get_place_info_batch
 import json
 
 # Load environment variables from .env file
@@ -71,9 +71,9 @@ async def recommend(
         
         print(f"SUCCESS - Parsed {len(activities)} activities")
         
-        # Add images if requested
+        # Add images and update URLs if requested
         if include_images:
-            activities = get_place_photo_batch(activities, destination)
+            activities = get_place_info_batch(activities, destination)
             recommendation = json.dumps(activities)
         else:
             recommendation = json.dumps(activities)
