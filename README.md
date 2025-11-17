@@ -1,10 +1,60 @@
-# TrAIvel
+# trAIvel
 
 <a alt="Nx logo" href="https://nx.dev" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="45"></a>
 
-✨ Your new, shiny [Nx workspace](https://nx.dev) is ready ✨.
+A monorepo workspace powered by Nx, featuring an Angular frontend and Python FastAPI backend.
 
-[Learn more about this workspace setup and its capabilities](https://nx.dev/getting-started/intro#learn-nx?utm_source=nx_project&amp;utm_medium=readme&amp;utm_campaign=nx_projects) or run `npx nx graph` to visually explore what was created. Now, let's get you up to speed!
+## Project Structure
+
+```
+trAIvel/
+├── apps/
+│   ├── frontend/          # Angular application
+│   └── backend/           # Python FastAPI application
+├── nx.json                # Nx workspace configuration
+└── package.json           # Node dependencies
+```
+
+## Quick Start
+
+### Prerequisites
+- Node.js (v18 or higher)
+- Python (v3.8 or higher)
+- npm
+
+### Setup
+
+1. **Install Node dependencies:**
+```bash
+npm install
+```
+
+2. **Setup Python backend:**
+```bash
+cd apps/backend
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+pip install -r requirements.txt
+cd ../..
+```
+
+### Running the Applications
+
+**Frontend (Angular):**
+```bash
+nx serve frontend
+```
+The frontend will be available at http://localhost:4200
+
+**Backend (Python FastAPI):**
+```bash
+nx serve backend
+```
+The backend API will be available at http://localhost:8000
+- API Documentation: http://localhost:8000/docs
+
+### Run Both Applications
+You can run both applications simultaneously in separate terminals.
 
 ## Run tasks
 
