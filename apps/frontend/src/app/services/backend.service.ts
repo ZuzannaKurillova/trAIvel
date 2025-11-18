@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { firstValueFrom } from 'rxjs';
 import { Activity } from '../models/activity';
+import { Weather } from '../models/weather';
 
 @Injectable({
   providedIn: 'root'
@@ -11,12 +12,13 @@ export class BackendService {
 
   constructor(private http: HttpClient) {}
 
-  async getRecommendations(destination: string): Promise<Activity[]> {
+  async getRecommendations(destination: string): Promise<{ activities: Activity[], weather: Weather | null }> {
     try {
       const response = await firstValueFrom(
         this.http.get<{ 
           destination: string; 
           recommendation: string;
+          weather: Weather;
           error?: string;
           raw_response?: string;
         }>(
@@ -29,7 +31,7 @@ export class BackendService {
         console.error('Backend error:', response.error);
         console.error('Raw response:', response.raw_response || response.recommendation);
         alert(`Error: ${response.error}\n\nCheck console for details.`);
-        return [];
+        return { activities: [], weather: null };
       }
 
       // Parse the JSON array from the recommendation string
@@ -37,16 +39,19 @@ export class BackendService {
       
       if (!Array.isArray(activities)) {
         console.error('Expected array, got:', typeof activities, activities);
-        return [];
+        return { activities: [], weather: null };
       }
       
-      return activities;
+      return { 
+        activities, 
+        weather: response.weather 
+      };
     } catch (error) {
       console.error('Error fetching recommendations:', error);
       if (error instanceof SyntaxError) {
         console.error('This is a JSON parsing error. The backend returned invalid JSON.');
       }
-      return [];
+      return { activities: [], weather: null };
     }
   }
 }

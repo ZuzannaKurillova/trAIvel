@@ -30,7 +30,7 @@ def get_weather(city: str) -> dict:
             return {"error": data.get("message", "Unknown error")}
 
         weather_data = {
-            "temperature": data["main"]["temp"],
+            "temperature": round(data["main"]["temp"]),
             "description": data["weather"][0]["description"],
             "humidity": data["main"]["humidity"],
             "wind_speed": data["wind"]["speed"]

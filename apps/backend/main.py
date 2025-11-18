@@ -3,6 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from dotenv import load_dotenv
 from ai_agent import get_ai_recommendation
 from places_service import get_place_info_batch
+from weather import get_weather
 import json
 
 # Load environment variables from .env file
@@ -45,6 +46,9 @@ async def recommend(
     destination: str,
     include_images: bool = Query(default=True, description="Include place images from Google Places API")
 ):
+    # Get weather data
+    weather_data = get_weather(destination)
+    
     # Get AI recommendations
     recommendation = get_ai_recommendation(destination)
     
@@ -94,10 +98,15 @@ async def recommend(
         return {
             "destination": destination,
             "recommendation": recommendation,
+            "weather": weather_data,
             "error": f"Unexpected error: {str(e)}"
         }
     
-    return {"destination": destination, "recommendation": recommendation}
+    return {
+        "destination": destination,
+        "recommendation": recommendation,
+        "weather": weather_data
+    }
 
 
 if __name__ == "__main__":

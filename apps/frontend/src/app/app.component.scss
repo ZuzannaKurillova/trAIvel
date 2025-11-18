@@ -9,19 +9,106 @@
   display: grid;
   place-items: center;
 
-  .search {
+  .search-section {
     display: flex;
-    button {
-      margin-left: 1rem;
-      background-color: orange;
+    gap: 2rem;
+    align-items: flex-start;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+    justify-content: center;
 
-      mat-icon {
-        color: white;
+    .search {
+      display: flex;
+      button {
+        margin-left: 1rem;
+        background-color: orange;
+
+        mat-icon {
+          color: white;
+        }
+      }
+
+      mat-form-field {
+        width: 350px;
       }
     }
 
-    mat-form-field {
-      width: 350px;
+    .weather-card {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      border-radius: 16px;
+      padding: 1.5rem;
+      color: white;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+      min-width: 300px;
+      max-width: 400px;
+      flex: 1;
+
+      .weather-header {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-bottom: 1rem;
+
+        mat-icon {
+          font-size: 28px;
+          width: 28px;
+          height: 28px;
+        }
+
+        h3 {
+          margin: 0;
+          font-size: 1.1rem;
+          font-weight: 500;
+        }
+      }
+
+      .weather-details {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+
+        .weather-item {
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+          background: rgba(255, 255, 255, 0.1);
+          padding: 0.75rem;
+          border-radius: 8px;
+
+          mat-icon {
+            font-size: 20px;
+            width: 20px;
+            height: 20px;
+          }
+
+          span {
+            font-size: 0.95rem;
+            font-weight: 500;
+            text-transform: capitalize;
+          }
+        }
+      }
+    }
+
+    // Responsive: Stack on smaller screens
+    @media (max-width: 768px) {
+      flex-direction: column;
+      align-items: center;
+
+      .search {
+        width: 100%;
+        justify-content: center;
+
+        mat-form-field {
+          width: 100%;
+          max-width: 350px;
+        }
+      }
+
+      .weather-card {
+        width: 100%;
+        max-width: 500px;
+      }
     }
   }
 

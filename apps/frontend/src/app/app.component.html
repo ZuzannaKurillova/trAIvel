@@ -1,21 +1,50 @@
 <div class="container">
   @if (!showSpinner) {
-  <div class="search">
-    <mat-form-field appearance="outline">
-      <mat-label>Which place do you want to explore?</mat-label>
-      <input
-        matInput
-        type="text"
-        (keyup.enter)="explore()"
-        [(ngModel)]="place"
-      />
-    </mat-form-field>
-    <button mat-fab (click)="explore()">
-      <mat-icon
-        aria-label="Search adventures"
-        fontIcon="travel_explore"
-      ></mat-icon>
-    </button>
+  <div class="search-section">
+    <div class="search">
+      <mat-form-field appearance="outline">
+        <mat-label>Which place do you want to explore?</mat-label>
+        <input
+          matInput
+          type="text"
+          (keyup.enter)="explore()"
+          [(ngModel)]="place"
+        />
+      </mat-form-field>
+      <button mat-fab (click)="explore()">
+        <mat-icon
+          aria-label="Search adventures"
+          fontIcon="travel_explore"
+        ></mat-icon>
+      </button>
+    </div>
+    
+    @if (weather && !weather.error) {
+    <div class="weather-card">
+      <div class="weather-header">
+        <mat-icon>wb_sunny</mat-icon>
+        <h3>Current Weather in {{ place }}</h3>
+      </div>
+      <div class="weather-details">
+        <div class="weather-item">
+          <mat-icon>thermostat</mat-icon>
+          <span>{{ weather.temperature }}°C</span>
+        </div>
+        <div class="weather-item">
+          <mat-icon>cloud</mat-icon>
+          <span>{{ weather.description }}</span>
+        </div>
+        <div class="weather-item">
+          <mat-icon>water_drop</mat-icon>
+          <span>{{ weather.humidity }}%</span>
+        </div>
+        <div class="weather-item">
+          <mat-icon>air</mat-icon>
+          <span>{{ weather.wind_speed }} m/s</span>
+        </div>
+      </div>
+    </div>
+    }
   </div>
   } @if (activities.length > 0) {
   <div class="activities">

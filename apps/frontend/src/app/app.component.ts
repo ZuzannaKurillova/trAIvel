@@ -7,8 +7,8 @@ import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 
 import { BackendService } from './services/backend.service';
-import { ImageSearchService } from './services/image-search.service';
 import { Activity } from './models/activity';
+import { Weather } from './models/weather';
 import { CardComponent } from './components/card/card.component';
 import { SpinnerComponent } from "./components/loading-spinner/loading-spinner.component";
 
@@ -31,14 +31,19 @@ import { SpinnerComponent } from "./components/loading-spinner/loading-spinner.c
 export class AppComponent {
   place = '';
   backendService = inject(BackendService);
-  imageSearch = inject(ImageSearchService);
   activities: Activity[] = [];
+  weather: Weather | null = null;
   showSpinner = false;
 
   async explore() {
    this.activities = [];
+   this.weather = null;
    this.showSpinner = true;
-   this.activities = await this.backendService.getRecommendations(this.place);
+   
+   const result = await this.backendService.getRecommendations(this.place);
+   this.activities = result.activities;
+   this.weather = result.weather;
+   
    this.showSpinner = false;
   }
 
