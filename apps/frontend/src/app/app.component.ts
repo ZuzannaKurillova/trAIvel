@@ -30,6 +30,7 @@ import { SpinnerComponent } from "./components/loading-spinner/loading-spinner.c
 })
 export class AppComponent {
   place = '';
+  searchedPlace = '';
   backendService = inject(BackendService);
   activities: Activity[] = [];
   weather: Weather | null = null;
@@ -39,11 +40,12 @@ export class AppComponent {
    this.activities = [];
    this.weather = null;
    this.showSpinner = true;
-   
+
    const result = await this.backendService.getRecommendations(this.place);
    this.activities = result.activities;
    this.weather = result.weather;
-   
+   this.searchedPlace = this.place;
+
    this.showSpinner = false;
   }
 
