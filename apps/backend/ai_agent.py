@@ -4,6 +4,8 @@ import os
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain.prompts import PromptTemplate
 from weather import get_weather
+from rag_service import get_rag_recommendations
+import json
 
 # Get API key from environment variable (no default for security)
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
@@ -47,7 +49,19 @@ llm = ChatGoogleGenerativeAI(
 chain = prompt | llm
 
 def get_ai_recommendation(destination: str) -> str:
-    """Return Gemini-generated travel recommendations with weather info"""
+    """Return travel recommendations - from RAG if available, otherwise from Gemini"""
+    
+    # First, try to get recommendations from RAG database
+    rag_activities = get_rag_recommendations(destination)
+    
+    if rag_activities:
+        print(f"INFO - Using RAG data for {destination} ({len(rag_activities)} activities)")
+        # Return RAG data as JSON string
+        return json.dumps(rag_activities)
+    
+    # If not in RAG, use Gemini
+    print(f"INFO - No RAG data found, using Gemini for {destination}")
+    
     # Get weather data
     weather = get_weather(destination)
 
@@ -61,7 +75,7 @@ def get_ai_recommendation(destination: str) -> str:
     else:
         weather_info = f"Weather information is currently unavailable. Error: {weather.get('error', 'Unknown')}"
 
-    print(f"INFO - Getting AI recommendation for {destination} with weather data")
+    print(f"INFO - Getting Gemini recommendation for {destination} with weather data")
 
     try:
         # Use LangChain to get recommendation

@@ -1,0 +1,136 @@
+[
+  { "destination": "Nitrianske Pravno",
+    "country": "Slovakia",
+    "description": "A small town in central Slovakia.",
+    "activities":
+    [
+      {
+        "activity": "Explore the village of Nitrianske Pravno",
+        "description": "Wander through the village center to see historic buildings and the local culture."
+      },
+      {
+        "activity": "Roman Catholic Parish Church of St. John the Baptist's Martyrdom",
+        "description": "The original stone Gothic church were laid at the end of the 14th century, reflecting the economic prosperity of the local mines at that time."
+      },
+      {
+        "activity": "Visit the Nitrianske Pravno Calvary",
+        "description": "Explore this historical and sacral site, which offers serene views and a sense of local heritage."
+      },
+      {
+        "activity": "Hike in the Strážov Mountains Protected Landscape Area",
+        "description": "Discover numerous marked trails for hiking and cycling in the beautiful surrounding nature."
+      },
+      {
+        "activity": "Museum of Carpathian Germans",
+        "description": "Located on SNP Square in a reconstructed historic building, this museum documents the history and life of the Carpathian Germans in the Horná Nitra region."
+      },
+      {
+        "activity": "Relax at Lake Nitrianske Rudno",
+        "description": "Enjoy swimming, fishing, or simply relaxing by the water at this nearby lake, a popular spot for holidaymakers."
+      },
+      {
+        "activity": "Hiking to Vyšehrad Jasenovo",
+        "description": "Hike to the top of Vyšehrad Hill (829 m asl) for panoramic views of the surrounding area."
+      },
+      {
+        "activity": "Bojnice Castle",
+        "description": "Visit one of Central Europe's most famous and picturesque castles, known for its fairy-tale appearance, museum, and park."
+      },
+      {
+        "activity": "Bojnice Castle Cave",
+        "description": "Go underground to the natural travertine cave located beneath the fourth courtyard of Bojnice Castle."
+      },
+      {
+        "activity": "Bojnice Zoo",
+        "description": "Explore the oldest zoo in Slovakia, home to over 360 animal species, situated in a beautiful setting next to the castle."
+      },
+      {
+        "activity": "Bojnice Lookout Tower",
+        "description": "Climb the 30-meter high tower for stunning views of the castle, the town of Prievidza, and the surrounding valley. It also features a fun slide."
+      },
+      {
+        "activity": "Museum of Prehistory",
+        "description": "Step back in time at this museum located in the original Neanderthal site of the Prepoštská cave."
+      },
+      {
+        "activity": "Bojnice Spa",
+        "description": "Unwind in the thermal pools, which use natural water with temperatures between 26 to 33°C."
+      },
+      {
+        "activity": "Visit House of Illusions",
+        "description": "Enjoy interactive exhibits and games focused on optical illusions, a fun activity for all ages."
+      },
+      {
+        "activity": "Čičmany village",
+        "description": "Take a short drive to this unique village famous for its traditional wooden houses with decorative white patterns, offering an authentic cultural immersion."
+      }
+    ]
+  },
+  {
+    "destination": "Zilina",
+    "country": "Slovakia",
+    "description": "A city in central Slovakia.",
+    "activities": [
+      {
+        "activity": "Mariánske Square Žilina",
+        "description": "Wander through the historic central square of Žilina, known for its colorful burgher houses, fountain, and the statue of Immaculata."
+      },
+      {
+        "activity": "Visit Budatín Castle",
+        "description": "Tour this picturesque 13th-century castle set in a large park at the confluence of the Váh and Kysuca rivers, which also hosts the Považie Museum focusing on regional history."
+      },
+      {
+        "activity": "Hike to Lietava Castle Lietava ruins",
+        "description": "Take a short hike to one of Slovakia's largest and most impressive castle ruins, offering spectacular views of the surrounding countryside."
+      },
+      {
+        "activity": "Catacombs in Žilina",
+        "description": "Go on a guided tour through the mysterious underground cellars and corridors beneath Mariánske Square, dating back to the 15th century."
+      },
+      {
+        "activity": "Walk in the Park of Ľudovít Štúr",
+        "description": "Relax in this well-maintained city park, which features a fountain, playgrounds, workout areas, and picnic spots, suitable for all ages."
+      },
+      {
+        "activity": "Hike in the Vrátna mountain",
+        "description": "Discover stunning natural scenery and diverse hiking trails (ranging from easy to hard), including the popular Jánošíkové Diery gorge."
+      },
+      {
+        "activity": "Visit the unique village of Čičmany",
+        "description": "Take a day trip to this world-famous village known for its traditional wooden houses decorated with distinctive white geometric patterns."
+      },
+      {
+        "activity": "Tour Orava Castle",
+        "description": "Visit one of the most dramatic and best-preserved medieval castles in Slovakia, perched on a steep cliff 100 meters above the Orava River."
+      },
+      {
+        "activity": "Visit the Slovak Bethlehem in Rajecká Lesná",
+        "description": "See an intricate and large wooden nativity scene (crib), which is a remarkable piece of folk art."
+      },
+      {
+        "activity": "Relax at Rajecké Teplice Spa",
+        "description": "Unwind in the thermal pools and spa facilities of the nearby Spa Aphrodite Rajecké Teplice."
+      },
+      {
+        "activity": "Explore Vratná Valley",
+        "description": "Visit this scenic valley in the Malá Fatra National Park for hiking, nature walks, or winter sports, with options to take a cable car up a peak."
+      },
+      {
+        "activity": "See the Cathedral of the Holy Trinity",
+        "description": "Visit this prominent Gothic church in the pedestrian zone of Žilina, known for its historical significance and architecture."
+      },
+      {
+        "activity": "Go to the Lookout Tower Dubeň",
+        "description": "Hike or drive to this lookout tower near Žilina for excellent views of the city, the surrounding mountains, and the Budatín Castle area."
+      },
+      {
+        "activity": "Visit the Museum of the Slovak Village (Martin)",
+        "description": "Explore the largest open-air museum in Slovakia (an easy day trip to Martin), showcasing traditional folk architecture and life in the region."
+      },
+      {
+        "activity": "Experience Stanica Žilina-Záriečie",
+        "description": "Visit this converted train station that now functions as a vibrant independent cultural center for concerts, theater, workshops, and discussions."
+      }
+    ]
+}
+]

@@ -61,3 +61,6 @@ __pycache__/
 apps/backend/venv/
 apps/backend/env/
 *.egg-info/
+
+# ChromaDB vector database
+apps/backend/chroma_db/
