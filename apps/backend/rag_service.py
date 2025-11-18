@@ -116,6 +116,31 @@ def search_destination(query: str, n_results: int = 1) -> Optional[Dict]:
             print("ERROR - Failed to initialize RAG database")
             return None
     
+    # First, try exact string match (case-insensitive)
+    all_results = collection.get()
+    query_lower = query.lower().strip()
+    
+    for idx, metadata in enumerate(all_results['metadatas']):
+        dest_name = metadata['destination'].lower().strip()
+        if dest_name == query_lower:
+            print(f"INFO - Exact match found for: {metadata['destination']}")
+            activities = json.loads(metadata['activities'])
+            
+            # Ensure each activity has a link field
+            for activity in activities:
+                if 'link' not in activity:
+                    activity['link'] = ''
+            
+            return {
+                "destination": metadata['destination'],
+                "country": metadata['country'],
+                "description": metadata['description'],
+                "activities": activities
+            }
+    
+    # If no exact match, try semantic search
+    print(f"INFO - No exact match, trying semantic search for: {query}")
+    
     # Generate query embedding
     query_embedding = embedding_model.encode([query]).tolist()
     
@@ -133,13 +158,13 @@ def search_destination(query: str, n_results: int = 1) -> Optional[Dict]:
     metadata = results['metadatas'][0][0]
     distance = results['distances'][0][0] if 'distances' in results else None
     
-    # Only return if similarity is high enough (distance < 1.0)
-    # Lower distance = higher similarity (0.0 = perfect match)
-    if distance is not None and distance > 1.0:
+    # Use stricter threshold for semantic search (0.5)
+    # This prevents "Nitrianske Rudno" from matching "Nitrianske Pravno"
+    if distance is not None and distance > 0.5:
         print(f"INFO - Match found but similarity too low (distance: {distance:.2f}) for: {query}")
         return None
     
-    print(f"INFO - Found RAG data for: {metadata['destination']} (distance: {distance:.2f}, similarity: {1-distance:.2f})")
+    print(f"INFO - Semantic match found for: {metadata['destination']} (distance: {distance:.2f}, similarity: {1-distance:.2f})")
     
     # Parse activities back from JSON
     activities = json.loads(metadata['activities'])
