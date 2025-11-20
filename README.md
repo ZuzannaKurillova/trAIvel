@@ -15,12 +15,12 @@ The less known locations have been added via RAG, user can test Nitrianske Pravn
 
 # Technologies
 
-Retrieval-Augmented Generation (RAG) - Ground truth for curated destinations
-Generative AI - Broad coverage with Gemini 2.0 Flash
-Multi-Agent Orchestration - Weather, RAG decision, generation, enrichment
-Intelligent Fallbacks - Graceful degradation at every layer
-Real-Time Enrichment - Photos and URLs from Google Places API
-This hybrid approach ensures accuracy for less-known destinations while maintaining flexibility for global coverage, creating a robust and reliable travel recommendation system.
+- Retrieval-Augmented Generation (RAG) - Ground truth for curated destinations
+- Generative AI - Broad coverage with Gemini 2.0 Flash
+- Multi-Agent Orchestration - Weather, RAG decision, generation, enrichment
+- Intelligent Fallbacks - Graceful degradation at every layer
+- Real-Time Enrichment - Photos and URLs from Google Places API
+- This hybrid approach ensures accuracy for less-known destinations while maintaining flexibility for global coverage, creating a robust and reliable travel recommendation system.
 
 # Architecture
 
