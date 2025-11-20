@@ -1,11 +1,17 @@
 # trAIvel
 
+trAIvel is an intelligent, agentic travel recommendation system that combines multiple AI technologies to provide accurate, personalized travel suggestions. The system uses a hybrid approach: Retrieval-Augmented Generation (RAG) for curated destinations and Generative AI for broader coverage, ensuring both accuracy and flexibility.
+
 <img width="1329" height="938" alt="Screenshot 2025-11-20 at 16 13 25" src="https://github.com/user-attachments/assets/e269c896-29ce-494d-a56d-3c31262f5ee3" />
 
-trAIvel is an intelligent, agentic travel recommendation system that combines multiple AI technologies to provide accurate, personalized travel suggestions. The system uses a hybrid approach: Retrieval-Augmented Generation (RAG) for curated destinations and Generative AI for broader coverage, ensuring both accuracy and flexibility.
-<img width="622" height="297" alt="Screenshot 2025-11-20 at 16 12 48" src="https://github.com/user-attachments/assets/8ab2cbae-0d6d-4c9e-9339-a9126a21bcad" />
-<img width="622" height="297" alt="Screenshot 2025-11-20 at 16 12 58" src="https://github.com/user-attachments/assets/af6a4e05-6aab-4a85-92bb-34940cd55641" />
-![IMG_2791](https://github.com/user-attachments/assets/9b4ddd42-9470-46c6-bcff-c2e62f2cdc8c)
+# Simple use
+Simply type a destination and click search (like on basic Google page). The app will 
+1. search for the actual weather (OpenWeather API)
+2. gets 15 activities that are suitable in the destination in the current weather (Gemini)
+3. searches for the appropriate image and url for the activity (Google Places API)
+   
+User can hover over the cards and see the description of the activity. Clicking it will take user to the link of the activity (or at least its location in Google Maps).
+The less known locations have been added via RAG, user can test Nitrianske Pravno and Zilina, places in SLovakia that didn't get very good results previously (mostly hallucinations) but via RAG we can see interesting activities for these places. Other places can be added later.
 
 # Technologies
 
