@@ -25,3 +25,7 @@ The less known locations have been added via RAG, user can test Nitrianske Pravn
 # Architecture
 
 More details can be found here: https://github.com/ZuzannaKurillova/trAIvel/blob/main/ARCHITECTURE.md
+
+# Getting started
+
+https://github.com/ZuzannaKurillova/trAIvel/blob/main/GETTING_STARTED.md
