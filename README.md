@@ -2,7 +2,7 @@
 
 <a alt="Nx logo" href="https://nx.dev" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="45"></a>
 
-A monorepo workspace powered by Nx, featuring an Angular frontend and Python FastAPI backend.
+An AI-powered web application that automatically generates tips for travels in a destination. Built with Angular frontend and Python FastAPI backend.
 
 ## Project Structure
 
